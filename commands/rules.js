@@ -11,11 +11,11 @@ module.exports = {
     async execute(interaction) {
         await interaction.deferReply({ ephemeral: true });
 
-        const requiredServerOwnerRoleId = config.serverOwnerId;
+        const requiredServerOwnerRoleId = config.RoleId;
         const member = interaction.guild.members.cache.get(interaction.user.id);
 
         if (!member.roles.cache.has(requiredServerOwnerRoleId)) {
-            return interaction.followUp({ content: 'You do not have the required role to use this command.', ephemeral: true });
+            return interaction.followUp({ content: 'غير مصرح لك بأستخدام هذا الامر', ephemeral: true });
         }
 
         const rulesPath = path.join(__dirname, '../rules.json');
@@ -24,7 +24,7 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setTitle('Server Rules')
             .setDescription('Server Rules Readers')
-            .setColor('#e70e0e')
+            .setColor(config.embedColor)
             .setImage(config.imageUrl);
 
         const selectMenu = new StringSelectMenuBuilder()
@@ -79,12 +79,6 @@ module.exports = {
                 }
             } catch (error) {
                 console.error('Failed to update the interaction:', error);
-            }
-        });
-
-        collector.on('end', collected => {
-            if (collected.size === 0) {
-                interaction.channel.send({ content: 'No rule selected. Please try again.', components: [] });
             }
         });
     },
