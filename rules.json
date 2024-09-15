@@ -24,6 +24,32 @@
       "name": "name",
       "roleId": "12345678910",
       "file": "rules5.txt"
+    },
+    {
+      "name": "name",
+      "roleId": "12345678910",
+      "file": "rules6.txt"
+    },
+
+    {
+      "name": "name",
+      "roleId": "12345678910",
+      "file": "rules7.txt"
+    },
+    {
+      "name": "name",
+      "roleId": "12345678910",
+      "file": "rules8.txt"
+    },
+    {
+      "name": "name",
+      "roleId": "12345678910",
+      "file": "rules9.txt"
+    },
+    {
+      "name": "name",
+      "roleId": "12345678910",
+      "file": "rules10.txt"
     }
   ]
 }
